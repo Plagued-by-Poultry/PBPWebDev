@@ -1,0 +1,49 @@
+NOTES FROM MEETING
+- Herbs and Green Tea FONT
+- 
+
+
+
+COLOUR SCHEMES:
+Base green: 
+#0E6144
+
+Compound shades
+Darker blue: 
+#067794
+
+Lighter blue: 
+#6BB5C7
+
+Brown
+#6E2E2B
+
+Darks/Background:
+#1f1f1f
+
+Magenta:
+#940638
+
+Contrasts: 
+#FFD77A
+
+Creamy colour:
+#EBEACB
+
+
+CONTACT PAGE: SCHEDULE A MEET
+Game Design & Development
+Portfolio/Promotion
+
+
+
+- move header works closer to title.
+- Add more spacing between portfolio and about us.
+- Add title to portfolio "Our Services"
+ 
+-sticky header
+
+-add padding to the what we offer, along with separator.
+
+- form needs more padding.
+
