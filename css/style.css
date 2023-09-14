@@ -57,6 +57,8 @@ header {
 
 
 .logo {
+    /* Temporarily hiding logo until sticky header is fixed */
+    display: none;
     position: relative;
     font-family: 'HerbsAndGreenTea', sans-serif;
     font-size: 500%;
@@ -337,6 +339,19 @@ section { padding: 80px 0; }
     text-align: center;
 }
 
+.pbp-portfolio ul {
+    margin: 0;
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+.pbp-portfolio ul li {
+    margin: 0;
+    padding: 0;
+}
+
+
 * {box-sizing:border-box}
 
 /* -------------------------------------------------------------------- */
@@ -363,6 +378,7 @@ section { padding: 80px 0; }
     margin: 0 auto;
     max-width: 100%;
 }
+
 
 /* Hide the images by default */
 .mySlides {
@@ -445,6 +461,7 @@ section { padding: 80px 0; }
 
 @media (max-width: 768px) {
     .slideshow-container {
+        height: 30vh;
         width: 100%;
     }
 }
@@ -497,6 +514,9 @@ cite img {
 
 .social-media-section {
     height: 10vh;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .social-links {
@@ -510,7 +530,22 @@ cite img {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-right: auto;
 }
+
+.social-links li:last-child {
+    margin-right: 40px;
+}
+
+.facebook,
+.instagram { 
+    -webkit-transition: color 0.2s; 
+    transition: color 0.2s; 
+}
+
+.facebook:hover { color: #4267B2; }
+
+.instagram:hover { color: #C13584; }
 
 /* -------------------------------------------------------------------- */
 /* CONTACT FORM */
@@ -558,6 +593,12 @@ cite img {
     background-color: #fff; /* Form background color */
     border-radius: 8px; /* Rounded corners */
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle depth effect */
+}
+
+.email-form h3 {
+    text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
 label {
