@@ -255,6 +255,11 @@ section { padding: 80px 0; }
         font-size: 124px;
         line-height: 0.8;
     }
+
+    .btn-box a {
+        margin: auto;
+        padding: auto;
+    }
 }
 
 
