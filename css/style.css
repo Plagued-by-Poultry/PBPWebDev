@@ -247,8 +247,6 @@ nav.links a:hover::after{ width:100%; }
 .hero h1{
   font-family:'Herbs', 'Poppins', sans-serif;
   font-size: var(--fs-display);
-  /* Herbs ships a single weight - h1's default bold would be synthesised
-     (smeared) by the browser, thickening the strokes. Ask for it explicitly. */
   font-weight: 400;
   line-height: 1;
   letter-spacing: 0.055em;
@@ -672,10 +670,7 @@ nav.links a:hover::after{ width:100%; }
   grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
   gap: clamp(14px, 1.8vw, 22px);
 }
-/* Logos arrive on mixed grounds (navy, plum, white, transparent), so each gets
-   its own tile. A fixed height keeps every tile uniform whatever the logo's
-   proportions, and gives the images a definite box to scale down inside -
-   without it a tall logo stretches its row and the grid goes ragged. */
+
 .client-tile{
   display:grid;
   place-items:center;
@@ -692,17 +687,12 @@ nav.links a:hover::after{ width:100%; }
 .client-tile:hover{ transform: translateY(-4px); }
 .client-tile img{
   max-width:100%;
-  /* a definite cap, not 100% - as a centred grid item the percentage resolves
-     against a contested box and tall logos (Salute to Service) spill the tile */
   max-height: clamp(60px, 5.8vw, 84px);
   width:auto;
   height:auto;
   object-fit: contain;
   display:block;
 }
-/* Some logos ship with their ground baked into the artwork. Those tiles take
-   that exact colour so the logo's edges vanish into the tile instead of
-   showing as a mismatched inset rectangle. */
 .client-tile.on-navy{ background:#041e43; border-color: transparent; }
 .client-tile.on-ink{ background:#0d111b; border-color: transparent; }
 .client-tile.on-plum{ background:#9c6f92; border-color: transparent; }
@@ -834,7 +824,6 @@ footer{
   .work-grid{ grid-template-columns: 1fr; }
   .hatch-grid{ grid-template-columns: 1fr; }
   .flock-grid{ grid-template-columns: repeat(2, 1fr); }
-  /* auto-fit's 170px floor just misses two tracks here and drops to one */
   .clients-grid{ grid-template-columns: repeat(2, 1fr); }
   .bio{ grid-template-columns: 1fr; }
   .nav-cta .btn span.long{ display:none; }
