@@ -313,40 +313,13 @@ nav.links a:hover::after{ width:100%; }
 .hero-art .btn.right:hover{ transform: translateY(calc(-50% + 2px)) rotate(0deg); }
 .hero-art .btn.primary{ background: var(--forest); border-color: #05140d; }
 .hero-art .btn.primary:hover{ background: var(--gold); border-color: var(--gold); color: var(--forest-deeper); }
-.drift{
-  position:absolute;
-  z-index:3;
-  opacity: 0.85;
-  color: var(--gold);
-}
-.drift.d3, .drift.d5, .drift.d9, .drift.d11{ opacity: 0.55; }
-.drift.d4, .drift.d6, .drift.d8, .drift.d10, .drift.d12, .drift.d13, .drift.d14{ opacity: 0.4; }
-.drift.d7{ opacity: 0.5; }
 @media (prefers-reduced-motion: no-preference){
-  .drift{ animation: drift 9s ease-in-out infinite; }
-  .drift.d2{ animation-duration: 11s; animation-delay: -3s; color: var(--rust);}
-  .drift.d3{ animation-duration: 13s; animation-delay: -6s; }
-  .drift.d4{ animation-duration: 10s; animation-delay: -1.5s; color: var(--rust); }
-  .drift.d5{ animation-duration: 15s; animation-delay: -8.5s; }
-  .drift.d6{ animation-duration: 12s; animation-delay: -4s; color: var(--rust); }
-  .drift.d7{  animation-duration: 14s; animation-delay: -2s;   }
-  .drift.d8{  animation-duration: 10.5s; animation-delay: -7s; color: var(--rust); }
-  .drift.d9{  animation-duration: 16s; animation-delay: -4.5s; }
-  .drift.d10{ animation-duration: 12.5s; animation-delay: -9s; color: var(--rust); }
-  .drift.d11{ animation-duration: 11.5s; animation-delay: -1s; }
-  .drift.d12{ animation-duration: 15s; animation-delay: -6s;   }
-  .drift.d13{ animation-duration: 13.5s; animation-delay: -3.5s; color: var(--rust); }
-  .drift.d14{ animation-duration: 17s; animation-delay: -8s;   }
   .hero-art .duck-img{ animation: bob 5.5s ease-in-out infinite; }
   .hero-art .wave-back{ animation: swell 22s linear infinite; }
   .hero-art .wave-mid{ animation: swell 15s linear infinite reverse; }
   .hero-art .wave-front{ animation: swell 10s linear infinite; }
   .hero-art .ripple{ animation: ripple 3.6s ease-out infinite; }
   .hero-art .ripple.r2{ animation-delay: 1.8s; }
-}
-@keyframes drift{
-  0%,100%{ transform: translate(0,0) rotate(0deg); }
-  50%{ transform: translate(-10px,-18px) rotate(14deg); }
 }
 @keyframes bob{
   0%,100%{ transform: translateX(-50%) scaleX(-1) translateY(0); }
@@ -671,7 +644,7 @@ nav.links a:hover::after{ width:100%; }
 .hatchlings{ padding-block: 0 clamp(72px,9vw,128px); }
 .hatchlings-head{ margin-bottom: clamp(28px,4vw,44px); }
 .hatchlings-head h2{ font-family:'Poppins', sans-serif; font-weight:700; font-size: var(--fs-h2); margin-top: 14px; }
-.hatch-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap: clamp(18px,2.4vw,28px); }
+.hatch-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: clamp(18px,2.4vw,28px); }
 .hatch-card{
   border-radius: 18px;
   overflow:hidden;
@@ -681,15 +654,6 @@ nav.links a:hover::after{ width:100%; }
 }
 .hatch-card .thumb{ aspect-ratio: 16/9; overflow:hidden; }
 .hatch-card .thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
-/* placeholder shown until real artwork is supplied */
-.hatch-card .thumb.is-placeholder{
-  display:grid;
-  place-items:center;
-  background:
-    repeating-linear-gradient(135deg, rgba(14,97,68,0.07) 0 14px, transparent 14px 28px),
-    linear-gradient(160deg, color-mix(in srgb, var(--forest) 16%, var(--surface)), var(--surface));
-}
-.hatch-card .thumb.is-placeholder img{ width:64px; height:64px; object-fit:contain; opacity:.5; }
 .hatch-card .meta{ padding: 18px 20px 22px; }
 .hatch-card .tag{
   font-family:'Poppins', sans-serif; font-weight:600; font-size:0.68rem;
@@ -698,6 +662,50 @@ nav.links a:hover::after{ width:100%; }
 }
 .hatch-card h3{ font-family:'Poppins', sans-serif; font-weight:700; font-size:1.05rem; font-style:italic; }
 .hatch-card .by{ margin-top:6px; font-size:0.86rem; color: var(--text-soft); }
+
+/* ---------- Client logo wall ---------- */
+.clients{ padding-block: 0 clamp(72px,9vw,128px); }
+.clients-head{ margin-bottom: clamp(28px,4vw,44px); }
+.clients-head h2{ font-family:'Poppins', sans-serif; font-weight:700; font-size: var(--fs-h2); margin-top: 14px; }
+.clients-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: clamp(14px, 1.8vw, 22px);
+}
+/* Logos arrive on mixed grounds (navy, plum, white, transparent), so each gets
+   its own tile. A fixed height keeps every tile uniform whatever the logo's
+   proportions, and gives the images a definite box to scale down inside -
+   without it a tall logo stretches its row and the grid goes ragged. */
+.client-tile{
+  display:grid;
+  place-items:center;
+  height: clamp(104px, 9vw, 132px);
+  min-height: 0;
+  overflow: hidden;
+  padding: clamp(12px, 1.4vw, 20px);
+  border-radius: 14px;
+  background:#fff;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  transition: transform .35s cubic-bezier(.2,.7,.2,1);
+}
+.client-tile:hover{ transform: translateY(-4px); }
+.client-tile img{
+  max-width:100%;
+  /* a definite cap, not 100% - as a centred grid item the percentage resolves
+     against a contested box and tall logos (Salute to Service) spill the tile */
+  max-height: clamp(60px, 5.8vw, 84px);
+  width:auto;
+  height:auto;
+  object-fit: contain;
+  display:block;
+}
+/* Some logos ship with their ground baked into the artwork. Those tiles take
+   that exact colour so the logo's edges vanish into the tile instead of
+   showing as a mismatched inset rectangle. */
+.client-tile.on-navy{ background:#041e43; border-color: transparent; }
+.client-tile.on-ink{ background:#0d111b; border-color: transparent; }
+.client-tile.on-plum{ background:#9c6f92; border-color: transparent; }
 
 /* ---------- Contact ---------- */
 .contact .grid{
@@ -809,6 +817,7 @@ footer{
   .service-grid .service:nth-child(2n+1){ padding-left: 0; }
   .service-grid .service:nth-child(2n){ padding-right: 0; border-right: none; }
   .work-grid{ grid-template-columns: 1fr 1fr; }
+  .hatch-grid{ grid-template-columns: repeat(2, 1fr); }
   .seed-grid{ grid-template-columns: 1fr; }
   .flock-grid{ grid-template-columns: repeat(3, 1fr); }
   .contact .grid{ grid-template-columns: 1fr; }
@@ -825,6 +834,8 @@ footer{
   .work-grid{ grid-template-columns: 1fr; }
   .hatch-grid{ grid-template-columns: 1fr; }
   .flock-grid{ grid-template-columns: repeat(2, 1fr); }
+  /* auto-fit's 170px floor just misses two tracks here and drops to one */
+  .clients-grid{ grid-template-columns: repeat(2, 1fr); }
   .bio{ grid-template-columns: 1fr; }
   .nav-cta .btn span.long{ display:none; }
 }
