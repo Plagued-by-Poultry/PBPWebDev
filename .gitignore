@@ -1,0 +1,18 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+# Strip the secrets 
+/secrets.config
+
+# Visual Studio Hidden Folders and Usermode Files 
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build & Output Directories
+obj/
+bin/
+

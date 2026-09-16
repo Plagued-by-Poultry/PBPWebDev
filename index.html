@@ -12,6 +12,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap">
 <link rel="stylesheet" href="./css/style.css?v=20260915">
+<link rel="preconnect" href="https://challenges.cloudflare.com" />
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" defer></script>
+<script src="./js/contact.js?v=20260915" defer></script>
 </head>
 <body>
 
@@ -25,7 +28,7 @@
       <a href="#work">Work</a>
       <a href="#services">Services</a>
       <a href="#studio">Studio</a>
-      <a href="#flock">Flock</a>
+      <a href="#team">Team</a>
       <a href="#contact">Contact</a>
     </nav>
     <div class="nav-cta">
@@ -94,7 +97,7 @@
     </div>
   </section>
 
-  <section class="flock band-dark" id="flock">
+  <section class="flock band-dark" id="team">
     <div class="wrap">
       <div class="flock-head reveal">
         <div class="eyebrow">The team</div>
@@ -446,23 +449,27 @@
         </div>
       </div>
       <form class="form-card reveal" id="contactForm">
-        <div class="field">
-          <label for="f-name">Your name</label>
-          <input id="f-name" name="name" type="text" placeholder="Robin Hatch" required>
-        </div>
-        <div class="field">
-          <label for="f-email">Your email</label>
-          <input id="f-email" name="email" type="email" placeholder="you@studio.com" required>
-        </div>
-        <div class="field">
-          <label for="f-message">What are you building?</label>
-          <textarea id="f-message" name="message" maxlength="3000" placeholder="A little bit about the project..." required></textarea>
-        </div>
-        <div class="form-foot">
-          <p class="form-note">No bots here, just a small studio checking our inbox.</p>
-          <button class="btn on-dark" type="submit">Send it over</button>
-        </div>
-        <p class="form-status" id="formStatus">Thanks &mdash; that&rsquo;s landed in our inbox. We&rsquo;ll write back soon.</p>
+          <div class="field">
+              <label for="f-name">Your name</label>
+              <input id="f-name" name="name" type="text" placeholder="Robin Hatch" required>
+          </div>
+          <div class="field">
+              <label for="f-email">Your email</label>
+              <input id="f-email" name="email" type="email" placeholder="you@studio.com" required>
+          </div>
+          <div class="field">
+              <label for="f-message">What are you building?</label>
+              <textarea id="f-message" name="message" maxlength="3000" placeholder="A little bit about the project..." required></textarea>
+          </div>
+          <!-- Turnstile injection - do not modify the ID or the class security-field - rest of it can be modified. See https://developers.cloudflare.com/turnstile/get-started/client-side-rendering/#explicit-rendering -->
+          <div class="field security-field" style="margin-bottom: 15px;">
+              <div id="turnstile-container"></div>
+          </div>
+          <div class="form-foot">
+              <p class="form-note">No bots here, just a small studio checking our inbox.</p>
+              <button class="btn on-dark" type="submit">Send it over</button>
+          </div>
+          <p class="form-status" id="formStatus" style="display: none;"></p>
       </form>
     </div>
   </section>
@@ -480,7 +487,7 @@
         <a href="#work">Work</a>
         <a href="#services">Services</a>
         <a href="#studio">Studio</a>
-      <a href="#flock">Flock</a>
+      <a href="#team">Team</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
